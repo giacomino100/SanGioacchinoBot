@@ -15,7 +15,17 @@ bot.onText(/\/start/, async (msg, match) => {
   // of the message
 
   const chatId = msg.chat.id;
-  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "\nVai al sito per restare aggiornato su tutte le novita: http://www.sangioacchinopartinico.it"
+  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "!\nVai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
+  bot.sendMessage(chatId, welcomeMessage);
+});
+
+bot.onText(/\/orari/, async (msg, match) => {
+  // 'msg' is the received Message from Telegram
+  // 'match' is the result of executing the regexp above on the text content
+  // of the message
+
+  const chatId = msg.chat.id;
+  const welcomeMessage = "Clicca qui per gli orari:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe/"
   bot.sendMessage(chatId, welcomeMessage);
 });
 
