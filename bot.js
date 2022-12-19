@@ -15,9 +15,8 @@ bot.onText(/\/start/, async (msg, match) => {
   // of the message
 
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, "Benvenuto " + msg.chat.first_name);
-
-
+  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "/\nVai al sito per restare aggiornato su tutte le novita: http://www.sangioacchinopartinico.it"
+  bot.sendMessage(chatId, "Benvenuto " + welcomeMessage);
 });
 
 // Matches "/echo [whatever]"
@@ -51,8 +50,8 @@ bot.onText(/\/eventi/, async (msg, match) => {
 
 // Listen for any kind of message. There are different kinds of
 // messages.
-bot.on('message', (msg) => {
+/*bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   // send a message to the chat acknowledging receipt of their message
   bot.sendMessage(chatId, 'Received your message');
-});
+});*/
