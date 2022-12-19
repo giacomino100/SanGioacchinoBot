@@ -18,7 +18,7 @@ bot.onText(/\/start/, async (msg, match) => {
   const welcomeMessage = "Benvenuto " + msg.chat.first_name + "!\nVai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
 
-  schedule.scheduleJob('42 * * * * *', function(){
+  schedule.scheduleJob('* * 8 * * *', function(){
     const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
     bot.sendMessage(chatId, welcomeMessage);
   });
