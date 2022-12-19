@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = '5696084881:AAHognvG1xaAkfLjciD40mU3SQZVsDcDIdQ';
+const token = '5696084881:AAEqm_ikFkCuP2DnrPf0X5okssLwkELEXjM';
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
@@ -15,7 +15,7 @@ bot.onText(/\/start/, async (msg, match) => {
   // of the message
 
   const chatId = msg.chat.id;
-  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "\nVai al sito per restare aggiornato su tutte le novita: http://www.sangioacchinopartinico.it"
+  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "/\nVai al sito per restare aggiornato su tutte le novita: http://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
 });
 
