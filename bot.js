@@ -15,7 +15,7 @@ bot.onText(/\/start/, async (msg, match) => {
   // of the message
 
   const chatId = msg.chat.id;
-  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "/\nVai al sito per restare aggiornato su tutte le novita: http://www.sangioacchinopartinico.it"
+  const welcomeMessage = "Benvenuto " + msg.chat.first_name + "\nVai al sito per restare aggiornato su tutte le novita: http://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
 });
 
