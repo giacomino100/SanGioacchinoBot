@@ -1,7 +1,6 @@
 import TelegramBot from 'node-telegram-bot-api';
 import fetch from 'node-fetch';
 
-
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '5696084881:AAEqm_ikFkCuP2DnrPf0X5okssLwkELEXjM';
 
@@ -23,10 +22,11 @@ bot.onText(/\/orari/, async (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
-
+  
   const chatId = msg.chat.id;
-  const welcomeMessage = "Clicca qui per gli orari:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe/"
-  bot.sendMessage(chatId, welcomeMessage);
+  const orari = "Ecco gli orari delle messe:\n\n- Giorni feriali -> 18:00\n- Messa della Vigilia (Sabato) -> 18:30\n- Giorni festivi -> 9:00/11:00/18:30\n\n"
+  const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
+  bot.sendMessage(chatId, orari + welcomeMessage);
 });
 
 // Matches "/echo [whatever]"
