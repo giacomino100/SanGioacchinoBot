@@ -1,5 +1,6 @@
 import TelegramBot from 'node-telegram-bot-api';
 import fetch from 'node-fetch';
+import schedule from 'node-schedule';
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '5696084881:AAEqm_ikFkCuP2DnrPf0X5okssLwkELEXjM';
@@ -16,6 +17,12 @@ bot.onText(/\/start/, async (msg, match) => {
   const chatId = msg.chat.id;
   const welcomeMessage = "Benvenuto " + msg.chat.first_name + "!\nVai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
+
+  schedule.scheduleJob('42 * * * * *', function(){
+    const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
+    bot.sendMessage(chatId, welcomeMessage);
+  });
+  
 });
 
 bot.onText(/\/orari/, async (msg, match) => {
@@ -28,6 +35,9 @@ bot.onText(/\/orari/, async (msg, match) => {
   const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
   bot.sendMessage(chatId, orari + welcomeMessage);
 });
+
+
+
 
 // Matches "/echo [whatever]"
 bot.onText(/\/eventi/, async (msg, match) => {
