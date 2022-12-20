@@ -1,7 +1,8 @@
 import TelegramBot from 'node-telegram-bot-api';
 import fetch from 'node-fetch';
 import schedule from 'node-schedule';
-
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 // replace the value below with the Telegram token you receive from @BotFather
 const token = process.env.TOKEN_BOT;
 
