@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import schedule from 'node-schedule';
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = '5696084881:AAEqm_ikFkCuP2DnrPf0X5okssLwkELEXjM';
+const token = process.env.TOKEN_BOT;
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
