@@ -1,8 +1,10 @@
 import TelegramBot from 'node-telegram-bot-api';
 import fetch from 'node-fetch';
-
+import schedule from 'node-schedule';
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 // replace the value below with the Telegram token you receive from @BotFather
-const token = '5696084881:AAEqm_ikFkCuP2DnrPf0X5okssLwkELEXjM';
+const token = process.env.TOKEN_BOT;
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
@@ -16,6 +18,12 @@ bot.onText(/\/start/, async (msg, match) => {
   const chatId = msg.chat.id;
   const welcomeMessage = "Benvenuto " + msg.chat.first_name + "!\nVai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
+
+  schedule.scheduleJob('* * 8 * * *', function(){
+    const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
+    bot.sendMessage(chatId, welcomeMessage);
+  });
+  
 });
 
 bot.onText(/\/orari/, async (msg, match) => {
