@@ -22,11 +22,20 @@ bot.onText(/\/orari/, async (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
-  
   const chatId = msg.chat.id;
   const orari = "Ecco gli orari delle messe:\n\n- Giorni feriali -> 18:00\n- Messa della Vigilia (Sabato) -> 18:30\n- Giorni festivi -> 9:00/11:00/18:30\n\n"
   const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
   bot.sendMessage(chatId, orari + welcomeMessage);
+});
+
+bot.onText(/\/info/, async (msg, match) => {
+  // 'msg' is the received Message from Telegram
+  // 'match' is the result of executing the regexp above on the text content
+  // of the message
+
+  const chatId = msg.chat.id;
+  const welcomeMessage = msg.chat.first_name + " vai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
+  bot.sendMessage(chatId, welcomeMessage);
 });
 
 // Matches "/echo [whatever]"
