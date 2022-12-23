@@ -19,12 +19,31 @@ bot.onText(/\/start/, async (msg, match) => {
   const welcomeMessage = "Benvenuto " + msg.chat.first_name + "!\nVai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
 
-  schedule.scheduleJob('* * 8 * * *', function(){
-    const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
+  //scheduled Job to Goodmorning
+  schedule.scheduleJob('0 7 * * *', function(){
+    const welcomeMessage = "Buongiorno! Clicca qui per restare aggiornato:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
+    bot.sendMessage(chatId, welcomeMessage);
+  });
+
+  //scheduled Job to Happy Christmas
+  schedule.scheduleJob('0 0 25 12 2022', function(){
+    const welcomeMessage = "Buon Natale!"
     bot.sendMessage(chatId, welcomeMessage);
   });
   
+  //scheduled Job to Happy Christmas
+  schedule.scheduleJob('0 0 1 1 2022', function(){
+    const welcomeMessage = "Buon Anno!"
+    bot.sendMessage(chatId, welcomeMessage);
+  });
+    
 });
+
+bot.onText(/\/prova/, async (msg, match) => {
+
+  bot.sendMessage(chatId, (new Date()).toDateString());
+});
+
 
 bot.onText(/\/orari/, async (msg, match) => {
   // 'msg' is the received Message from Telegram
