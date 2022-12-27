@@ -20,13 +20,13 @@ bot.onText(/\/start/, async (msg, match) => {
   const welcomeMessage = "Benvenuto " + msg.chat.first_name + "!\nVai al sito per restare aggiornato su tutte le novita:\nhttp://www.sangioacchinopartinico.it"
   bot.sendMessage(chatId, welcomeMessage);
 
-  schedule.scheduleJob('0 40 15 * * *', function(){
-    const welcomeMessage = "Clicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
+  schedule.scheduleJob('0 0 8 * * *', function(){
+    const welcomeMessage = "Buongiorno " + msg.chat.first_name + "!\nClicca qui per maggiori informazioni:\nhttp://www.sangioacchinopartinico.it/orario-delle-messe"
     bot.sendMessage(chatId, welcomeMessage);
   });
   
   //scheduled Job to Happy Christmas
-  schedule.scheduleJob('0 0 1 1 2022', function(){
+  schedule.scheduleJob('0 0 0 28 12 2022', function(){
     const welcomeMessage = "Buon Anno!"
     bot.sendMessage(chatId, welcomeMessage);
   });
