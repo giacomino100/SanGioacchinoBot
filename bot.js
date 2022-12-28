@@ -26,7 +26,7 @@ bot.onText(/\/start/, async (msg, match) => {
   });
   
   //scheduled Job to Happy Christmas
-  schedule.scheduleJob('0 0 0 28 12 2022', function(){
+  schedule.scheduleJob('0 32 23 28 12 2022', function(){
     const welcomeMessage = "Buon Anno!"
     bot.sendMessage(chatId, welcomeMessage);
   });
